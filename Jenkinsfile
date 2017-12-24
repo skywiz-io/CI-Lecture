@@ -4,7 +4,7 @@ pipeline {
         stage('PHP Unittest') {
             steps {
                 echo "Running PHP Test"
-                bat 'c:\php\php index.php'
+                bat 'c:\\php\\php index.php'
             } 
         }
         stage('Create VM For QA') {
