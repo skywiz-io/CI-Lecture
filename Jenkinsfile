@@ -16,11 +16,11 @@ pipeline {
 	    stage('Wait for Manual QA') {
             steps {
                 echo "Waiting for manual QA"
+		input 'Do you approve deployment?'
             }    
         }
         stage('Deploy on Prod') {
             steps {
-		input 'Do you approve deployment?'
                 echo "Deploying on prod"
             }    
         }
