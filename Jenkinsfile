@@ -10,7 +10,7 @@ pipeline {
         stage('Create VM For QA') {
             steps {
                 echo "Creating VM For QA"
-		build "hello vRA"
+		//build "hello vRA"
             }
         }
 	    stage('Wait for Manual QA') {
@@ -20,6 +20,7 @@ pipeline {
         }
         stage('Deploy on Prod') {
             steps {
+		input 'Do you approve deployment?'
                 echo "Deploying on prod"
             }    
         }
