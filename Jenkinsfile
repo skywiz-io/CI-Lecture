@@ -10,7 +10,7 @@ pipeline {
         stage('Create VM For QA') {
             steps {
                 echo "Creating VM For QA"
-		//build "hello vRA"
+		build "hello vRA"
             }
         }
 	    stage('Wait for Manual QA') {
@@ -30,6 +30,8 @@ pipeline {
         always {
             // Shutdown the environment
             echo "Finished"
+	    echo "Destroying Test environment"
+	    build "destroy vRA"
         }
         success {
             // Send Success mail message And Depoly the same version on Test project for manual QA
