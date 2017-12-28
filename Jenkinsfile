@@ -16,6 +16,7 @@ pipeline {
 	    stage('Wait for Manual QA') {
             steps {
                 echo "Waiting for manual QA"
+		slackSend color: 'good', message: "Waiting for QA Approval. ${BUILD_URL}"
 		input 'Do you approve deployment?'
             }    
         }
@@ -33,10 +34,13 @@ pipeline {
         success {
             // Send Success mail message And Depoly the same version on Test project for manual QA
             echo "Success"
+	    slackSend color: 'good', message: "Greate success. ${BUILD_URL}"
         }
         failure {
             //Remove Image from repo and Send Failure message
             echo "Failure"
+	    slackSend color: 'danger', message: "Failue. ${BUILD_URL}"
+            
       }
     }
 }
