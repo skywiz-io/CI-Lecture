@@ -10,6 +10,7 @@ pipeline {
         stage('Create VM For QA') {
             steps {
                 echo "Creating VM For QA"
+		build "hello vRA"
             }
         }
 	    stage('Wait for Manual QA') {
