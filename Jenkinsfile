@@ -16,7 +16,7 @@ pipeline {
 	    stage('Wait for Manual QA') {
             steps {
                 echo "Waiting for manual QA"
-		slackSend color: 'good', message: "Waiting for QA Approval. ${BUILD_URL}"
+		slackSend color: 'good', message: "Waiting for QA Approval. ${BUILD_URL}/input/"
 		input 'Do you approve deployment?'
             }    
         }
