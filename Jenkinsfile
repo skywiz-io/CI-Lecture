@@ -10,7 +10,7 @@ pipeline {
         stage('Create VM For QA') {
             steps {
                 echo "Creating VM For QA"
-		build "hello vRA"
+		build "vRA Depoly QA"
             }
         }
 	    stage('Wait for Manual QA') {
@@ -23,7 +23,8 @@ pipeline {
         stage('Deploy on Prod') {
             steps {
                 echo "Deploying on prod"
-            }    
+		build "vRA Depoly Prod"    
+	    }    
         }
     }
     post {
